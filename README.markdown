@@ -1,8 +1,13 @@
 # A Recipe for a haproxy 1.6 stable version RPM on CentOS
 
-Perform the following on a build box as a regular user.
+## Deltas from Fork Source for CSMS
+
+* Upgraded to 1.6.9
+* Removed LUA from the build
 
 ## Create an RPM Build Environment
+
+Perform the following on a build box as a regular user.
 
 Install rpmdevtools from the [EPEL][epel] repository:
 
