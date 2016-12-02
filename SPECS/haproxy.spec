@@ -6,7 +6,7 @@
 %define haproxy_confdir %{_sysconfdir}/haproxy
 %define haproxy_datadir %{_datadir}/haproxy
 
-%define version 1.6.3
+%define version 1.6.9
 
 Name: haproxy
 Summary: HA-Proxy is a TCP/HTTP reverse proxy for high availability environments
@@ -58,7 +58,7 @@ risking the system's stability.
 %define __perl_requires /bin/true
 
 %build
-%{__make} USE_OPENSSL=yes USE_PCRE=1 USE_LUA=yes LUA_LIB=/usr/local/lib/ LUA_INC=/usr/local/include/ USE_ZLIB=1 DEBUG="" ARCH=%{_target_cpu} TARGET=linux26
+%{__make} USE_OPENSSL=yes USE_PCRE=1 USE_ZLIB=1 DEBUG="" ARCH=%{_target_cpu} TARGET=linux26
 
 %install
 [ "%{buildroot}" != "/" ] && %{__rm} -rf %{buildroot}
@@ -116,6 +116,10 @@ fi
 %attr(-,%{haproxy_user},%{haproxy_group}) %dir %{haproxy_home}
 
 %changelog
+* Fri Dec 2 2016 David Atkins
+- updated to 1.6.9
+- removed LUA support (not required for our install)
+
 * Sun Dec 27 2015 Willy Tarreau <w@1wt.eu>
 - updated to 1.6.3
 
